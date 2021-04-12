@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_plugins
   uuv_sensor_ros_plugins_msgs
   message_filters
+  cv_bridge
   tf2_ros
   tf2
   laser_geometry)
@@ -217,7 +218,7 @@ list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST uuv_gazebo_ros_camera_plugin)
 ###############################################################################
 
 add_library(image_sonar_ros_plugin src/gazebo_ros_image_sonar.cpp)
-target_link_libraries(image_sonar_ros_plugin ${OGRE_LIBRARIES} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+target_link_libraries(image_sonar_ros_plugin ${OGRE_LIBRARIES} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${OpenCV_LIBRARIES})
 add_dependencies(image_sonar_ros_plugin ${catkin_EXPORTED_TARGETS})
 list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST image_sonar_ros_plugin)
 
